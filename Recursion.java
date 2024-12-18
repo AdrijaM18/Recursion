@@ -54,6 +54,21 @@ class Recursion {
           return countZeros(num/10); 
         
     }
+    public static int chkPalindrome(int num,int s){
+        if(num == 0){
+            return s;
+        }
+        s = (s*10) + (num %10);
+        return chkPalindrome(num/10,s);
+        
+    }
+    public static int makeReverse(int num, int s){
+        if(num == 0){
+            return s;
+        }
+        s = (s*10) + (num %10);
+        return makeReverse(num/10,s);
+    }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter a number : ");
@@ -70,6 +85,11 @@ class Recursion {
         System.out.print(n+"th fibonacci number is : "+fibi(n));
         int num1 = sc.nextInt();
         System.out.println("Number of zeros: "+countZeros(num1));
+        int nums1 = sc.nextInt();
+        int temp = chkPalindrome(nums1,0);
+        if(temp == nums1)
+           System.out.println(temp+" is : palindrome");
+        System.out.println("The reverse of : "+fac+" :"+makeReverse(fac, 0));
         sc.close();
     }
 }
